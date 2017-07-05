@@ -18,56 +18,48 @@ class XibQuoteView: UIView {
     
 
     @IBOutlet var authorLabel: UILabel!
-//        
-//    @IBOutlet var quoteLabelXib: UILabel!
-//
-//    @IBOutlet var iamgeViewXib: UIImageView!
-//    
-//    @IBOutlet var authorLabelXib: UILabel!
-//    
-//    
-//    @IBOutlet var somelabel: UILabel!
+
     
     var photoObject = PhotoModel()
-//    var quoteObject = QuoteModel()
+    var quoteObject = QuoteModel()
 
     
-
+    
 //    override func viewDidAppear(_ animated: Bool) {
 //        quoteLabel.numberOfLines = 0;
 //    }
     
-//    
-//    func populateQuoteLabel(){
-//        quoteLabelXib.numberOfLines = 0;
-//        quoteLabelXib.text = quoteObject.quote
-//        authorLabelXib.text = quoteObject.author
-//    }
-//    
-//    func populateImageView(){
-//        iamgeViewXib.image = photoObject.quoteImage
-//    }
-//    
-//    @IBAction func quoteAction(_ sender: UIButton) {
-//        URLDataHelper.fetchQuote() { (author, quote) in
-//            self.quoteObject.quote = quote
-//            self.quoteObject.author = author
-//           // self.populateQuoteLabel()
-//        }
-//
-//    }
-//    
-//    
+    
+    func populateQuoteLabel(){
+        quoteLabel.numberOfLines = 0;
+        quoteLabel.text = quoteObject.quote
+        authorLabel.text = quoteObject.author
+    }
+    
+    func populateImageView(){
+        imageView.image = photoObject.quoteImage
+    }
+    
+    @IBAction func quoteAction(_ sender: UIButton) {
+        URLDataHelper.fetchQuote() { (author, quote) in
+            self.quoteObject.quote = quote
+            self.quoteObject.author = author
+            self.populateQuoteLabel()
+        }
+
+    }
+    
+    
     @IBAction func imageAction(_ sender: UIButton) {
         URLDataHelper.fetchImage { (image) in
             self.photoObject.quoteImage = image
-           // self.populateImageView()
+            self.populateImageView()
         }
     }
  
-//
-//    @IBAction func saveAction(_ sender: UIButton) {
-//    }
+
+    @IBAction func saveAction(_ sender: UIButton) {
+    }
  
     
 }
