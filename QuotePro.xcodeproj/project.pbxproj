@@ -18,6 +18,8 @@
 		737CF8CE1F0CA51B0060567A /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737CF8CD1F0CA51B0060567A /* QuoteViewController.swift */; };
 		737CF8D21F0CA9CF0060567A /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737CF8D11F0CA9CF0060567A /* QuoteModel.swift */; };
 		737CF8D41F0CAA260060567A /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737CF8D31F0CAA260060567A /* PhotoModel.swift */; };
+		737CF8D61F0D6D010060567A /* xibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737CF8D51F0D6D010060567A /* xibView.xib */; };
+		737CF8D81F0D6D4F0060567A /* XibQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737CF8D71F0D6D4F0060567A /* XibQuoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		737CF8CD1F0CA51B0060567A /* QuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		737CF8D11F0CA9CF0060567A /* QuoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		737CF8D31F0CAA260060567A /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		737CF8D51F0D6D010060567A /* xibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = xibView.xib; sourceTree = "<group>"; };
+		737CF8D71F0D6D4F0060567A /* XibQuoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibQuoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,11 +94,13 @@
 				737CF8A91F0CA0250060567A /* AppDelegate.swift */,
 				737CF8AB1F0CA0250060567A /* ViewController.swift */,
 				737CF8CB1F0CA3110060567A /* URLDataHelper.swift */,
-				737CF8CD1F0CA51B0060567A /* QuoteViewController.swift */,
 				737CF8D11F0CA9CF0060567A /* QuoteModel.swift */,
 				737CF8D31F0CAA260060567A /* PhotoModel.swift */,
+				737CF8D71F0D6D4F0060567A /* XibQuoteView.swift */,
+				737CF8D51F0D6D010060567A /* xibView.xib */,
 				737CF8AD1F0CA0250060567A /* Main.storyboard */,
 				737CF8C91F0CA1680060567A /* CustomQuoteCell.swift */,
+				737CF8CD1F0CA51B0060567A /* QuoteViewController.swift */,
 				737CF8B01F0CA0250060567A /* Assets.xcassets */,
 				737CF8B21F0CA0250060567A /* LaunchScreen.storyboard */,
 				737CF8B51F0CA0250060567A /* Info.plist */,
@@ -196,6 +202,7 @@
 			files = (
 				737CF8B41F0CA0250060567A /* LaunchScreen.storyboard in Resources */,
 				737CF8B11F0CA0250060567A /* Assets.xcassets in Resources */,
+				737CF8D61F0D6D010060567A /* xibView.xib in Resources */,
 				737CF8AF1F0CA0250060567A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				737CF8D21F0CA9CF0060567A /* QuoteModel.swift in Sources */,
+				737CF8D81F0D6D4F0060567A /* XibQuoteView.swift in Sources */,
 				737CF8CA1F0CA1680060567A /* CustomQuoteCell.swift in Sources */,
 				737CF8AC1F0CA0250060567A /* ViewController.swift in Sources */,
 				737CF8AA1F0CA0250060567A /* AppDelegate.swift in Sources */,

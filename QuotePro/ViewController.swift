@@ -44,15 +44,13 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource 
                 
                 fatalError("The dequeued cell is not an instance of MealTableViewCell")
         }
-        
-        
+
         return cell
-        
     }
     
     @IBAction func addQuoteAction(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "showQuoteView", sender: self)
-    }
+            self.performSegue(withIdentifier: "showQuoteView", sender: self)
+        }
     
 }
 

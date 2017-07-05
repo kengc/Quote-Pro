@@ -11,8 +11,7 @@ import UIKit
 class URLDataHelper: NSObject {
 
     class func fetchQuote(closure: @escaping (_ author: String, _ quote: String) -> Void ){
-        
-        //let imageID : String = self.photoObject.imageID! as String
+
         let urlstring = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json"
         
         let url = URL(string: urlstring)!
