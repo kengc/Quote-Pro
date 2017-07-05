@@ -9,7 +9,7 @@
 import UIKit
 
 protocol XibQuoteViewProtocol{
-    func saveQuote(photo: PhotoModel, quote: QuoteModel)
+    func saveQuote(photo: PhotoModel, quote: QuoteModel, image: UIImage)
 }
 
 
@@ -60,10 +60,23 @@ class XibQuoteView: UIView {
         
         print("inside saveACion")
         
-        self.XibQuoteViewDelegate.saveQuote(photo: self.photoObject, quote: self.quoteObject)
+        let image = snapshot(view: self)
+        
+        self.XibQuoteViewDelegate.saveQuote(photo: self.photoObject, quote: self.quoteObject, image: image)
         
         NotificationCenter.default.post(name: Notification.Name("dismissXib"), object: nil) 
     }
  
+    func snapshot(view :UIView ) -> (UIImage)
+    {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0);
+        
+        self.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        
+        let image :UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return image;
+    }
     
 }

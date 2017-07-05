@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, XibQuoteViewProtocol {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XibQuoteViewProtocol {
 
     @IBOutlet var tableView: UITableView!
 
@@ -18,15 +18,15 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
 
     var photos = [PhotoModel]()
     var quotes = [QuoteModel]()
+    var images = [UIImage]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
-      
     }
     
-
+//MARK - Table View Delegate methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -57,6 +57,53 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
         return cell
     }
     
+//    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType) -> Any? {
+//        
+//    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // image to share
+        //let image = UIImage(named: "Image")
+        
+        
+        let myWebsite = NSURL(string:"http://www.google.com/")
+        //let myWebsite = NSURL(string:"blah blah blah")
+        let img: UIImage = images[indexPath.row]
+        
+//        guard let url = myWebsite else {
+//            print("nothing found")
+//            return
+//        }
+        //iMessage/Facebook/Twitter
+        
+        let shareItems:Array = [img, myWebsite] as [Any]
+        
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        
+        activityViewController.excludedActivityTypes = []
+//        activityViewController.excludedActivityTypes = [UIActivityType.print, UIActivityType.postToWeibo, UIActivityType.copyToPasteboard, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+        
+    
+        self.present(activityViewController, animated: true, completion: nil)
+
+        
+        
+        // set up activity view controller
+        //iMessage/Facebook/Twitter.
+        
+//        let activityViewController = UIActivityViewController(activityItems: [images[indexPath.row]], applicationActivities: nil)
+//        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+//        
+//        // exclude some activity types from the list (optional)
+//        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+//        
+//        // present the view controller
+//        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
+
+//MARK - Segue
     @IBAction func addQuoteAction(_ sender: UIBarButtonItem) {
             self.performSegue(withIdentifier: "showQuoteView", sender: self)
         }
@@ -70,12 +117,14 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
         }
     }
     
-    func saveQuote(photo: PhotoModel, quote: QuoteModel) {
+//MARK - XibQuoteView delegate
+    func saveQuote(photo: PhotoModel, quote: QuoteModel, image: UIImage) {
         photos.append(photo)
         quotes.append(quote)
+        images.append(image)
         print("inside saveQuote")
         self.tableView.reloadData()
     }
-    
+
 }
 
