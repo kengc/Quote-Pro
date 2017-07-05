@@ -58,10 +58,11 @@ class XibQuoteView: UIView {
 
     @IBAction func saveAction(_ sender: UIButton) {
         
+        print("inside saveACion")
+        
         self.XibQuoteViewDelegate.saveQuote(photo: self.photoObject, quote: self.quoteObject)
         
-        NotificationCenter.default.post(name: Notification.Name("dismissXib"), object: nil)
- 
+        NotificationCenter.default.post(name: Notification.Name("dismissXib"), object: nil) 
     }
  
     

@@ -26,25 +26,13 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
       
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        
-//        let delegateView = XibQuoteView()
-//        delegateView.XibQuoteViewDelegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(photos.count)
         return photos.count
     }
     
@@ -77,7 +65,6 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
          if segue.identifier == "showQuoteView" {
           let nextScene = segue.destination as? QuoteViewController
            let canView = nextScene?.view as? XibQuoteView
-           //let xibView = nextScene?.view.subviews[1] as? XibQuoteView
             canView?.XibQuoteViewDelegate = self
 
         }
@@ -86,6 +73,7 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource,
     func saveQuote(photo: PhotoModel, quote: QuoteModel) {
         photos.append(photo)
         quotes.append(quote)
+        print("inside saveQuote")
         self.tableView.reloadData()
     }
     

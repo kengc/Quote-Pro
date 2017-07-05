@@ -29,5 +29,6 @@ class QuoteViewController : UIViewController {
     func methodOfReceivedNotification(notification: Notification){
         //Take Action on Notification
        self.navigationController?.popToRootViewController(animated: true)
+       NotificationCenter.default.removeObserver(self) //removed the observer
     }
 }
