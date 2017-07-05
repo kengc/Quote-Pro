@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoModel {
 
-    var  quoteImage: UIImage?
+    var  quoteImage: UIImage!
     
 //    init(quoteImage: UIImage) {
 //        self.quoteImage = quoteImage

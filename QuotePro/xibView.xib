@@ -23,7 +23,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quotes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flA-dT-hwh">
                     <rect key="frame" x="16" y="158" width="343" height="24"/>
-                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>

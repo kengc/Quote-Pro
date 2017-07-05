@@ -10,9 +10,9 @@ import UIKit
 
 class QuoteModel {
 
-    var quote: String?
-    var author: String?
-    var imageLink: String?
+    var quote: String!
+    var author: String!
+    var imageLink: String!
     //var imageQuote: UIImage?
     
 //    init(quote: String, author: String, imageLink: String) {

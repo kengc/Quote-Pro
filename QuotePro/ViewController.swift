@@ -8,16 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, XibQuoteViewProtocol {
 
     @IBOutlet var tableView: UITableView!
-    
 
+    
+    var photoObject: PhotoModel?
+    var quoteObject: QuoteModel?
+
+    var photos = [PhotoModel]()
+    var quotes = [QuoteModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+       
+      
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
+//        let delegateView = XibQuoteView()
+//        delegateView.XibQuoteViewDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +45,7 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return photos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,12 +59,35 @@ class ViewController: UIViewController, UITabBarDelegate, UITableViewDataSource 
                 fatalError("The dequeued cell is not an instance of MealTableViewCell")
         }
 
+        let photoObject = photos[indexPath.row]
+        let quoteObject = quotes[indexPath.row]
+        
+        cell.authorLabel.text = quoteObject.author
+        cell.quoteLabel.text = quoteObject.quote
+        cell.imageViewCell.image = photoObject.quoteImage
+        
         return cell
     }
     
     @IBAction func addQuoteAction(_ sender: UIBarButtonItem) {
             self.performSegue(withIdentifier: "showQuoteView", sender: self)
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "showQuoteView" {
+          let nextScene = segue.destination as? QuoteViewController
+           let canView = nextScene?.view as? XibQuoteView
+           //let xibView = nextScene?.view.subviews[1] as? XibQuoteView
+            canView?.XibQuoteViewDelegate = self
+
+        }
+    }
+    
+    func saveQuote(photo: PhotoModel, quote: QuoteModel) {
+        photos.append(photo)
+        quotes.append(quote)
+        self.tableView.reloadData()
+    }
     
 }
 

@@ -8,27 +8,25 @@
 
 import UIKit
 
+protocol XibQuoteViewProtocol{
+    func saveQuote(photo: PhotoModel, quote: QuoteModel)
+}
+
+
 class XibQuoteView: UIView {
 
-
-    @IBOutlet var quoteLabel: UILabel!
+    var XibQuoteViewDelegate:XibQuoteViewProtocol!
     
+    @IBOutlet var quoteLabel: UILabel!
     
     @IBOutlet var imageView: UIImageView!
     
-
     @IBOutlet var authorLabel: UILabel!
 
     
     var photoObject = PhotoModel()
     var quoteObject = QuoteModel()
 
-    
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        quoteLabel.numberOfLines = 0;
-//    }
-    
     
     func populateQuoteLabel(){
         quoteLabel.numberOfLines = 0;
@@ -59,6 +57,11 @@ class XibQuoteView: UIView {
  
 
     @IBAction func saveAction(_ sender: UIButton) {
+        
+        self.XibQuoteViewDelegate.saveQuote(photo: self.photoObject, quote: self.quoteObject)
+        
+        NotificationCenter.default.post(name: Notification.Name("dismissXib"), object: nil)
+ 
     }
  
     
