@@ -41,7 +41,6 @@
                     </constraints>
                     <state key="normal" title="Quote"/>
                     <connections>
-                        <action selector="quoteAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kUy-EV-Hfm"/>
                         <action selector="quoteAction:" destination="-1" eventType="touchUpInside" id="wmN-Aw-oKE"/>
                     </connections>
                 </button>
@@ -53,7 +52,6 @@
                     <state key="normal" title="Image"/>
                     <connections>
                         <action selector="imageAction:" destination="-1" eventType="touchUpInside" id="3ko-Fz-7hz"/>
-                        <action selector="imageAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="tHZ-sr-gtd"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMr-4L-p5N">
