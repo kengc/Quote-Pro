@@ -52,7 +52,6 @@ class URLDataHelper: NSObject {
 
     class func fetchImage(closure: @escaping (_ image: UIImage) -> Void ){
         
-        //let imageID : String = self.photoObject.imageID! as String
         let urlstring = "https://lorempixel.com/400/200/"
         
         let url = URL(string: urlstring)!
@@ -63,9 +62,7 @@ class URLDataHelper: NSObject {
         let task = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
             
             OperationQueue.main.addOperation {
-                //labelView.text = "Number of Views: " + views!
-                //print(quoteObject as Any)
-                //photoObject.quoteImage = UIImage(data: data)!
+  
                 if let imageData = data as NSData? {
                     let image = UIImage(data: imageData as Data)
                     closure(image!)

@@ -57,48 +57,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-//    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType) -> Any? {
-//        
-//    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // image to share
-        //let image = UIImage(named: "Image")
-        
-        
+
+    
         let myWebsite = NSURL(string:"http://www.google.com/")
-        //let myWebsite = NSURL(string:"blah blah blah")
+ 
         let img: UIImage = images[indexPath.row]
         
-//        guard let url = myWebsite else {
-//            print("nothing found")
-//            return
-//        }
-        //iMessage/Facebook/Twitter
-        
+   
         let shareItems:Array = [img, myWebsite] as [Any]
         
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         
         activityViewController.excludedActivityTypes = []
-//        activityViewController.excludedActivityTypes = [UIActivityType.print, UIActivityType.postToWeibo, UIActivityType.copyToPasteboard, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
         
-    
         self.present(activityViewController, animated: true, completion: nil)
-
-        
-        
-        // set up activity view controller
-        //iMessage/Facebook/Twitter.
-        
-//        let activityViewController = UIActivityViewController(activityItems: [images[indexPath.row]], applicationActivities: nil)
-//        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-//        
-//        // exclude some activity types from the list (optional)
-//        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-//        
-//        // present the view controller
-//        self.present(activityViewController, animated: true, completion: nil)
     }
     
     
